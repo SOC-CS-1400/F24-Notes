@@ -45,8 +45,11 @@ def main():
     f1 = Flight('SN060', a1)
     print(f'F1 Flight number {f1.number()}')
     print(f'Flight aircraft model {f1.aircraft_model()}')
-    # Test
-    pp(f1._seating)
+    # Add a passenger
+    f1.allocate_seat('12A', 'Guido van Rossum')
+    pp(f1._seating) # TEST
+    f1.allocate_seat('12B', 'Larry Wall')
+    pp(f1._seating) # TEST
 
 
 if __name__ == '__main__':

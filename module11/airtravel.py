@@ -46,6 +46,28 @@ class Flight:
     def aircraft_model(self):
         return self._aircraft.model()
     
+    def allocate_seat(self, seat, passenger):
+        rows, seat_letters = self._aircraft.seating_plan()
+        # Validate seat letter. Ex '2B'
+        letter = seat[-1]  # take last char
+        if letter not in seat_letters:
+            raise ValueError(f'Invalid seat letter {letter}')   
+        # Validate the row number
+        row_text = seat[:-1] # take all but last char
+        try:
+            row = int(row_text)  # str to int conversion
+        except:
+            raise ValueError(f'Invalid seat row {row_text}')   
+        if row not in rows:  # valid number?
+            raise ValueError(f'Invalid seat row {row_text}')   
+        # check if seat is occupied
+        if self._seating[row][letter] is not None:
+            raise ValueError(f'Seat {seat} already occupied')
+        # Otherwise is good to go
+        self._seating[row][letter] = passenger
+        
+        
+            
 
 
 class Aircraft:
