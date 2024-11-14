@@ -44,6 +44,34 @@ class Aircraft:
         self._model = model
         self._num_rows = num_rows
         self._num_seats_per_row = num_seats_per_row
+        
+    # Add setters and getters for all instance variables
+
+    def registration(self):
+        return self._registration
+    
+    def set_registration(self, registration):
+        self._registration = registration
+    
+    def model(self):
+        return self._model
+    
+    def set_model(self, model):
+        self._model = model
+    
+    def num_rows(self):
+        return self._num_rows
+    
+    def set_num_rows(self, num_rows):
+        self._num_rows = num_rows
+        
+    def num_seats_per_row(self):
+        return self._num_seats_per_row
+        
+    def set_num_seats_per_row(self, num_seats_per_row):
+        self._num_seats_per_row = num_seats_per_row
+            
+            
 
 
 def main():
