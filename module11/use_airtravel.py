@@ -2,6 +2,7 @@
 Test use of model for aircraft flights
 """
 from airtravel import Flight, Aircraft
+from pprint import pprint as pp
 
 
 def main():
@@ -44,6 +45,8 @@ def main():
     f1 = Flight('SN060', a1)
     print(f'F1 Flight number {f1.number()}')
     print(f'Flight aircraft model {f1.aircraft_model()}')
+    # Test
+    pp(f1._seating)
 
 
 if __name__ == '__main__':

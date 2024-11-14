@@ -10,6 +10,11 @@ class Flight:
         # Define instance variables
         self._number = self._validate_flight_number(number)
         self._aircraft = aircraft
+        # Get rows and seats
+        rows, seats = self._aircraft.seating_plan()
+        # 'Waste" index 0. 
+        self._seating = [None] + [{letter: None for letter in seats} 
+                                  for _ in rows]
     
     def _validate_flight_number(self, number):
         # If any of the rules below fail, raise ValueError
