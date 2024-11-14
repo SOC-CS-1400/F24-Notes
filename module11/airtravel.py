@@ -6,9 +6,10 @@ Model for aircraft flights
 class Flight:
     # Define initializer method or constructor
     # This is called when an object is created
-    def __init__(self, number):
+    def __init__(self, number, aircraft):
         # Define instance variables
         self._number = self._validate_flight_number(number)
+        self._aircraft = aircraft
     
     def _validate_flight_number(self, number):
         # If any of the rules below fail, raise ValueError
@@ -36,6 +37,10 @@ class Flight:
     # This is also called a "setter" method
     def set_number(self, number):
         self._number = self._validate_flight_number(number)
+    
+    def aircraft_model(self):
+        return self._aircraft.model()
+    
 
 
 class Aircraft:
