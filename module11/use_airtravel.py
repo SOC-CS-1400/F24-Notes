@@ -38,6 +38,7 @@ def main():
     print(f'Aircraft model {a1.model()}')
     print(f'Aircraft num_rows {a1.num_rows()}')
     print(f'Aircraft num_seats_per_rows {a1.num_seats_per_row()}')
+    print(f'Aircraft num_seats {a1.seating_plan()}')
 
 
 if __name__ == '__main__':
