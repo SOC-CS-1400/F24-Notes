@@ -85,8 +85,11 @@ class Flight:
         self._seating[to_row][to_letter] = self._seating[from_row][from_letter]
         self._seating[from_row][from_letter] = None  # make seat available
 
+    def aircraft_capacity(self):
+        return self._aircraft.num_seats()
 
-class Aircraft:
+
+class Aircraft:  # Base class
     def __init__(self, registration, model, num_rows, num_seats_per_row):
         self._registration = registration
         self._model = model
@@ -123,13 +126,14 @@ class Aircraft:
         return (range(1, self._num_rows + 1),
                 'ABCDEFGHJK'[:self._num_seats_per_row])
 
+    def num_seats(self):
+        rows, row_seats = self.seating_plan()
+        return len(rows) * len(row_seats)
 
-class AirbusA319:
+
+class AirbusA319(Aircraft):  # inherits Aircraft
     def __init__(self, registration):
         self._registration = registration
-
-    def registration(self):
-        return self._registration
 
     def model(self):
         return 'Airbus A319'
@@ -137,12 +141,10 @@ class AirbusA319:
     def seating_plan(self):
         return range(1, 23), "ABCDEF"
 
-class Boeing777:
+
+class Boeing777(Aircraft):
     def __init__(self, registration):
         self._registration = registration
-
-    def registration(self):
-        return self._registration
 
     def model(self):
         return 'Boeing 777'

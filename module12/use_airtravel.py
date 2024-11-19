@@ -41,8 +41,8 @@ def make_many_flights():
 def main():
     # f1 = make_flight()
     f1, f2 = make_many_flights()
-    print(f'f1 model {f1.aircraft_model()}')
-    print(f'f2 model {f2.aircraft_model()}')
+    print(f'f1 model {f1.aircraft_model()} has {f1.aircraft_capacity()} seats')
+    print(f'f2 model {f2.aircraft_model()} has {f2.aircraft_capacity()} seats')
 
 
 if __name__ == '__main__':
