@@ -124,6 +124,33 @@ class Aircraft:
                 'ABCDEFGHJK'[:self._num_seats_per_row])
 
 
+class AirbusA319:
+    def __init__(self, registration):
+        self._registration = registration
+
+    def registration(self):
+        return self._registration
+
+    def model(self):
+        return 'Airbus A319'
+
+    def seating_plan(self):
+        return range(1, 23), "ABCDEF"
+
+class Boeing777:
+    def __init__(self, registration):
+        self._registration = registration
+
+    def registration(self):
+        return self._registration
+
+    def model(self):
+        return 'Boeing 777'
+
+    def seating_plan(self):
+        return range(1, 56), "ABCDEFGHJK"
+
+
 def main():
     pass
 
