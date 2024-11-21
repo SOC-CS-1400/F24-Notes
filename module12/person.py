@@ -37,6 +37,21 @@ class Person:
             raise TypeError('Unsupported operand type == for these objects')
         return self._age == other._age  # True or False
 
+    def __ne__(self, other):
+        """Comparison Operator
+
+        Args:
+            other (Person): Object to compare to
+
+        Raises:
+            TypeError: Incorrect Type
+
+        Returns:
+            Boolean: True if objects have same age, False otherwise
+        """
+        if not isinstance(other, Person):  # check if other is type Person
+            raise TypeError('Unsupported operand type == for these objects')
+        return self._age != other._age  # True or False
 
 def main():
     pass
