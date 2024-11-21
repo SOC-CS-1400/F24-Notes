@@ -11,8 +11,16 @@ BASE_URL = 'https://api.openweathermap.org/data/2.5/weather?'
 def pull_weather_data(zip_code):
     api_url = BASE_URL + 'zip=' + str(zip_code)
     api_url += ',us' + '&units=metric'  # add country and units
-    api_url += '&appid=' + API_KEY # add your key
-    print(api_url)  # TESTING
+    api_url += '&appid=' + API_KEY  # add your key
+    try:
+        # Connect to API and get data in JSON format
+        weather_data = requests.get(api_url).json()
+        if weather_data['cod'] != 200:  # response code
+            raise ValueError
+    except ValueError:
+        print('Bad response from API')
+
+    return weather_data
 
 
 def main():
