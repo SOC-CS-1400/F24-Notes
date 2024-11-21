@@ -6,7 +6,7 @@ import weather_app as wa
 
 def main():
     print('Testing Weather App')
-    print(wa.BASE_URL)
+    wa.pull_weather_data(84408)
 
 
 if __name__ == '__main__':

@@ -2,14 +2,17 @@
 """Weather App to check current weather conditions"""
 # install package, type on your terminal:
 # pip install requests
-import requests 
+import requests
 
-API_KEY = 'af4f939501ebb649537e015196aedc70' # YOUR OWN KEY
+API_KEY = 'af4f939501ebb649537e015196aedc70'  # YOUR OWN KEY
 BASE_URL = 'https://api.openweathermap.org/data/2.5/weather?'
 
 
 def pull_weather_data(zip_code):
-    pass
+    api_url = BASE_URL + 'zip=' + str(zip_code)
+    api_url += ',us' + '&units=metric'  # add country and units
+    api_url += '&appid=' + API_KEY # add your key
+    print(api_url)  # TESTING
 
 
 def main():
